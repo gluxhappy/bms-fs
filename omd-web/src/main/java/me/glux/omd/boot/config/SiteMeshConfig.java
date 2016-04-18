@@ -20,6 +20,8 @@ public class SiteMeshConfig {
         protected void applyCustomConfiguration(SiteMeshFilterBuilder builder) {
             builder.addDecoratorPaths("/**","/profile/info","/main")
             .addExcludedPath("/auth/**")
+            .addExcludedPath("/")
+            .addExcludedPath("/**.do")
             .addExcludedPath("/profile/info");
      
         }
