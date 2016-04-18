@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="me.glux.omd.dao.user.UserMapper" >
+  <resultMap id="BaseResultMap" type="me.glux.omd.model.user.User" >
+    <id column="id" property="id" jdbcType="BIGINT" />
+    <result column="username" property="username" jdbcType="CHAR" />
+    <result column="password" property="password" jdbcType="CHAR" />
+    <result column="alias" property="alias" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, username, password, alias
+  </sql>
+  <select id="selectById" resultMap="BaseResultMap" parameterType="java.lang.Long" >
+    select 
+    <include refid="Base_Column_List" />
+    from omd_user
+    where id = #{id,jdbcType=BIGINT}
+  </select>
+  <delete id="deleteById" parameterType="java.lang.Long" >
+    delete from omd_user
+    where id = #{id,jdbcType=BIGINT}
+  </delete>
+  <insert id="insert" parameterType="me.glux.omd.model.user.User" >
+    insert into omd_user (id, username, password,alias)
+    values (#{id,jdbcType=BIGINT}, #{username,jdbcType=CHAR}, #{password,jdbcType=CHAR}, 
+      #{alias,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="me.glux.omd.model.user.User" >
+    insert into omd_user
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="username != null" >
+        username,
+      </if>
+      <if test="password != null" >
+        password,
+      </if>
+      <if test="alias != null" >
+        alias,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="username != null" >
+        #{username,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        #{password,jdbcType=CHAR},
+      </if>
+      <if test="alias != null" >
+        #{alias,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByIdSelective" parameterType="me.glux.omd.model.user.User" >
+    update omd_user
+    <set >
+      <if test="username != null" >
+        username = #{username,jdbcType=CHAR},
+      </if>
+      <if test="password != null" >
+        password = #{password,jdbcType=CHAR},
+      </if>
+      <if test="alias != null" >
+        alias = #{alias,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  <update id="updateById" parameterType="me.glux.omd.model.user.User" >
+    update omd_user
+    set username = #{username,jdbcType=CHAR},
+      password = #{password,jdbcType=CHAR},
+      alias = #{alias,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=BIGINT}
+  </update>
+  
+  <select id="findUserRoles" resultType="me.glux.omd.model.security.enums.Roles">
+    select role
+    from omd_user_role
+    where user_id = #{userId,jdbcType=BIGINT}
+  </select>
+  
+  <select id="findByUsername" resultMap="BaseResultMap">    
+    select <include refid="Base_Column_List" />
+    from omd_user
+    where username = #{username,jdbcType=CHAR}
+  </select>
+  <select id="findAllUser" resultMap="BaseResultMap">    
+    select <include refid="Base_Column_List" />
+    from omd_user
+  </select>
+</mapper>

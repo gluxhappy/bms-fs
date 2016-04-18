@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+	<classPathEntry location="C:\Users\gao\.m2\repository\mysql\mysql-connector-java\5.1.36\mysql-connector-java-5.1.36.jar" />
+	<classPathEntry location="C:\Users\gao\.m2\repository\me\glux\omd\model\1.0.0\model-1.0.0.jar" />
+	<context
+		id="user"
+		targetRuntime="MyBatis3">
+		<property
+			name="autoDelimitKeywords"
+			value="false" />
+		<property
+			name="javaFileEncoding"
+			value="UTF-8" />
+		<property
+			name="javaFormatter"
+			value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+		<property
+			name="xmlFormatter"
+			value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+
+		<commentGenerator>
+			<property
+				name="suppressAllComments"
+				value="true" />
+			<property
+				name="suppressDate"
+				value="true" />
+		</commentGenerator>
+
+		<jdbcConnection
+			driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.126.129:3306/omd?useUnicode=true&amp;characterEncoding=utf-8"
+			userId="root"
+			password="qixin123">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property
+				name="forceBigDecimals"
+				value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator
+			targetPackage="me.glux.omd.model.user"
+			targetProject="omd-model/src/main/java">
+			<property
+				name="enableSubPackages"
+				value="true" />
+			<property
+				name="trimStrings"
+				value="false" />
+			<property
+				name="rootClass"
+				value="me.glux.omd.model.LongIdEntry" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator
+			targetPackage="me.glux.omd.dao.user"
+			targetProject="omd-dao/src/main/resources">
+			<property
+				name="enableSubPackages"
+				value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator
+			type="XMLMAPPER"
+			targetPackage="me.glux.omd.dao.user"
+			targetProject="omd-dao/src/main/java">
+			<property
+				name="enableSubPackages"
+				value="true" />
+			<property
+				name="methodNameCalculator"
+				value="default" />
+		</javaClientGenerator>
+
+		<table
+			schema="omd"
+			tableName="omd_user"
+			domainObjectName="User"
+			enableCountByExample="false"
+			enableDeleteByExample="false"
+			enableSelectByExample="false"
+			enableUpdateByExample="false">
+		</table>
+
+		<table
+			schema="omd"
+			tableName="omd_user_role"
+			domainObjectName="UserRole"
+			enableCountByExample="false"
+			enableDeleteByExample="false"
+			enableSelectByExample="false"
+			enableUpdateByExample="false">
+			<columnOverride
+				column="role"
+				property="role"
+				javaType="me.glux.omd.model.security.enums.Roles"
+				typeHandler="org.apache.ibatis.type.EnumTypeHandler" />
+		</table>
+	</context>
+	
+	<context
+		id="redis"
+		targetRuntime="MyBatis3">
+		<property
+			name="autoDelimitKeywords"
+			value="false" />
+		<!-- 生成的Java文件的编码 -->
+		<property
+			name="javaFileEncoding"
+			value="UTF-8" />
+		<!-- 格式化java代码 -->
+		<property
+			name="javaFormatter"
+			value="org.mybatis.generator.api.dom.DefaultJavaFormatter" />
+		<!-- 格式化XML代码 -->
+		<property
+			name="xmlFormatter"
+			value="org.mybatis.generator.api.dom.DefaultXmlFormatter" />
+
+		<commentGenerator>
+			<property
+				name="suppressAllComments"
+				value="true" />
+			<property
+				name="suppressDate"
+				value="true" />
+		</commentGenerator>
+
+		<jdbcConnection
+			driverClass="com.mysql.jdbc.Driver"
+			connectionURL="jdbc:mysql://192.168.126.129:3306/omd?useUnicode=true&amp;characterEncoding=utf-8"
+			userId="root"
+			password="qixin123">
+		</jdbcConnection>
+
+		<javaTypeResolver>
+			<property
+				name="forceBigDecimals"
+				value="false" />
+		</javaTypeResolver>
+
+		<javaModelGenerator
+			targetPackage="me.glux.omd.model.redis"
+			targetProject="omd-model/src/main/java">
+			<property
+				name="enableSubPackages"
+				value="true" />
+			<property
+				name="trimStrings"
+				value="false" />
+			<property
+				name="rootClass"
+				value="me.glux.omd.model.LongIdEntry" />
+		</javaModelGenerator>
+
+		<sqlMapGenerator
+			targetPackage="me.glux.omd.dao.redis"
+			targetProject="omd-dao/src/main/resources">
+			<property
+				name="enableSubPackages"
+				value="true" />
+		</sqlMapGenerator>
+
+
+		<javaClientGenerator
+			type="XMLMAPPER"
+			targetPackage="me.glux.omd.dao.redis"
+			targetProject="omd-dao/src/main/java">
+			<property
+				name="enableSubPackages"
+				value="true" />
+			<property
+				name="methodNameCalculator"
+				value="default" />
+		</javaClientGenerator>
+
+		<table
+			schema="omd"
+			tableName="omd_redis_pattern"
+			domainObjectName="RedisPattern"
+			enableCountByExample="false"
+			enableDeleteByExample="false"
+			enableSelectByExample="false"
+			enableUpdateByExample="false">
+		</table>
+	</context>
+</generatorConfiguration>

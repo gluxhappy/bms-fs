@@ -1,0 +1,11 @@
+
+.dn{
+	display: none;
+}
+
+.cuttitle{ 
+	overflow:  hidden; 
+	white-space: nowrap; 
+	-o-text-overflow: ellipsis; 
+	text-overflow:  ellipsis; 
+}
