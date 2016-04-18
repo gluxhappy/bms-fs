@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Users</title>
-${viewres}
 </head>
 <body>
        <#if users?? && users?size gt 0>

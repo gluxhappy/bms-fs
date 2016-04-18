@@ -5,7 +5,7 @@
 </head>
 <body>
 	<div <#if !keys?? > style="margin-top:15%"</#if>>
-	   <form role="form" action="search" style="margin-left:30%;width:400px">
+	   <form role="form" action="search" style="margin-left:30%;width:400px"  method="POST">
 	      <div class="input-group">
 	         <input type="text" class="form-control" placeholder="Key模式" name="pattern" value="<#if pattern??>${pattern}<#else>*</#if>" />
 	         <span class="input-group-addon">@</span>

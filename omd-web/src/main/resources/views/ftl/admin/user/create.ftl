@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Create User</title>
-${viewres}
 </head>
 <body>
 	<form class="form-horizontal" role="form" method="POST"

@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>Redis/Pattern/Detail</title>
-${viewres}
 </head>
 <body>
 	<form class="form-horizontal" role="form" method="POST"

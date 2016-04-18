@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>redis/patterns</title>
-${viewres}
 </head>
 <body>
 	<#if patterns?? && patterns?size gt 0>

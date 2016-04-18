@@ -2,11 +2,10 @@
 <html>
 <head>
 	<title>Profile/Info</title>
-${viewres}
 </head>
 <body>
 	<div style="padding: 100px 100px 10px;">
-	   <form role="form" action="flush" style="margin-left:30%;width:400px">
+	   <form role="form" action="flush"  method="POST" style="margin-left:30%;width:400px">
 	      <div class="input-group">
 	         <input type="text" class="form-control" placeholder="请输入flush" name="flush"/>
 	         <span class="input-group-addon">@</span>
