@@ -15,6 +15,7 @@
 		<module>omd-model</module>
 		<module>omd-rest</module>
 		<module>omd-core</module>
+		<module>omd-commons</module>
 	</modules>
 
 	<properties>
